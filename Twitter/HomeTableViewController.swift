@@ -19,6 +19,15 @@ class HomeTableViewController: UITableViewController {
     // Logout button
     @IBAction func on_logout(_ sender: Any) {
         
+        // Logout of Twitter - Backend
+        TwitterAPICaller.client?.logout()
+        
+        // Screen will dismiss itself - Frontend
+        self.dismiss(animated: true, completion: nil)
+        
+        // When User clicks 'Logout'
+        //  - Notifies 'Home' page that user is logged out
+        UserDefaults.standard.set(false, forKey: "userLoggedIn")
     }
     
     // MARK: - Table view data source
