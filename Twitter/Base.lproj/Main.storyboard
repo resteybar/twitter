@@ -65,32 +65,32 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Ey-Ob-9wh">
-                                            <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="65" id="AZE-JN-2sJ"/>
-                                                <constraint firstAttribute="height" constant="65" id="cJl-BN-QNk"/>
-                                            </constraints>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b85-1V-du4">
-                                            <rect key="frame" x="73" y="11" width="82" height="22"/>
+                                            <rect key="frame" x="89" y="11" width="82" height="22"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UqB-lk-7JA">
-                                            <rect key="frame" x="73" y="37" width="286" height="72"/>
+                                            <rect key="frame" x="89" y="37" width="270" height="72"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Ey-Ob-9wh">
+                                            <rect key="frame" x="16" y="11" width="65" height="65"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="65" id="AZE-JN-2sJ"/>
+                                                <constraint firstAttribute="height" constant="65" id="cJl-BN-QNk"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="b85-1V-du4" firstAttribute="leading" secondItem="4Ey-Ob-9wh" secondAttribute="trailing" constant="8" id="08p-bc-qxl"/>
                                         <constraint firstItem="UqB-lk-7JA" firstAttribute="trailing" secondItem="8us-Ie-DbG" secondAttribute="trailingMargin" id="16H-vZ-kjJ"/>
-                                        <constraint firstItem="4Ey-Ob-9wh" firstAttribute="leading" secondItem="8us-Ie-DbG" secondAttribute="leading" id="9Pc-it-Uci"/>
                                         <constraint firstItem="UqB-lk-7JA" firstAttribute="top" secondItem="b85-1V-du4" secondAttribute="bottom" constant="4" id="KPC-qJ-uEB"/>
-                                        <constraint firstItem="4Ey-Ob-9wh" firstAttribute="top" secondItem="8us-Ie-DbG" secondAttribute="top" id="OhX-ED-XWS"/>
+                                        <constraint firstItem="4Ey-Ob-9wh" firstAttribute="leading" secondItem="8us-Ie-DbG" secondAttribute="leadingMargin" id="NWV-yJ-8BR"/>
+                                        <constraint firstItem="4Ey-Ob-9wh" firstAttribute="top" secondItem="8us-Ie-DbG" secondAttribute="topMargin" id="Qwa-ho-27H"/>
                                         <constraint firstItem="b85-1V-du4" firstAttribute="top" secondItem="8us-Ie-DbG" secondAttribute="topMargin" id="V8E-z2-zlc"/>
                                         <constraint firstItem="UqB-lk-7JA" firstAttribute="leading" secondItem="4Ey-Ob-9wh" secondAttribute="trailing" constant="8" id="e6B-DO-Xuq"/>
                                         <constraint firstItem="UqB-lk-7JA" firstAttribute="bottom" secondItem="8us-Ie-DbG" secondAttribute="bottomMargin" id="ueG-JX-0HU"/>
