@@ -18,18 +18,20 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        load_tweet()
+        load_tweets()
         
         // When user loads for more tweets
         //  - (What screen to apply it to, What to action to do, )
-        my_refresh_control.addTarget(self, action: #selector(load_tweet), for: .valueChanged)
+        my_refresh_control.addTarget(self, action: #selector(load_tweets), for: .valueChanged)
         tableView.refreshControl = my_refresh_control
     }
     
     // Load Tweets
-    @objc func load_tweet() {
+    @objc func load_tweets() {
+        num_of_tweets = 20
+        
         let my_url = "https://api.twitter.com/1.1/statuses/home_timeline.json"
-        let my_params = ["count": 20]
+        let my_params = ["count": num_of_tweets]
         
         TwitterAPICaller.client?.getDictionariesRequest(url: my_url, parameters: my_params, success: { (tweets: [NSDictionary]) in
             
@@ -50,6 +52,13 @@ class HomeTableViewController: UITableViewController {
         }, failure: { (Error) in
             print("Could not retrieve tweets! oh no!!")
         })
+    }
+    
+    // Load more Tweets
+    func load_more_tweets() {
+        let my_url = "https://api.twitter.com/1.1/statuses/home_timeline.json"
+        
+        num_of_tweets += 20
     }
 
     // Logout button
