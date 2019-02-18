@@ -57,8 +57,32 @@ class HomeTableViewController: UITableViewController {
     // Load more Tweets
     func load_more_tweets() {
         let my_url = "https://api.twitter.com/1.1/statuses/home_timeline.json"
-        
         num_of_tweets += 20
+        let my_params = ["count": num_of_tweets]
+        
+        TwitterAPICaller.client?.getDictionariesRequest(url: my_url, parameters: my_params, success: { (tweets: [NSDictionary]) in
+            
+            // Remove old tweets
+            self.tweet_array.removeAll()
+            
+            // Refresh list
+            for tweet in tweets {
+                self.tweet_array.append(tweet)
+            }
+            
+            // Update table
+            self.tableView.reloadData()
+            
+        }, failure: { (Error) in
+            print("Could not retrieve tweets! oh no!!")
+        })
+    }
+    
+    // Notifies us when 'user' reaches bottom/end of table
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == tweet_array.count {
+            load_more_tweets()
+        }
     }
 
     // Logout button
