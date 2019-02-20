@@ -24,6 +24,16 @@ class HomeTableViewController: UITableViewController {
         //  - (What screen to apply it to, What to action to do, )
         my_refresh_control.addTarget(self, action: #selector(load_tweets), for: .valueChanged)
         tableView.refreshControl = my_refresh_control
+        
+        
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 150
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        load_tweets()
     }
     
     // Load Tweets
@@ -118,6 +128,15 @@ class HomeTableViewController: UITableViewController {
             cell.profile_image_view.image = UIImage(data: image_data)
         }
         
+        // Sets favorited button
+        cell.set_favorite(tweet_array[indexPath.row]["favorited"] as! Bool)
+        
+        // Used for checking if user favorited a tweet
+        cell.tweetId = tweet_array[indexPath.row]["id"] as! Int
+        
+        // Retweeted status
+        cell.set_retweeted(tweet_array[indexPath.row]["retweeted"] as! Bool)
+        
         return cell
     }
     
@@ -184,7 +203,11 @@ class HomeTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        // Pass the selected object to the new view controller
+     
+         let cell = sender as! UITableViewCell
+         let index_path = tableView.indexPath(for: cell)!
+         tableView.deselectRow(at: index_path, animated: true)
     }
     */
 
